@@ -1,0 +1,10 @@
+.roll_day {border:1px solid #F96C56;margin-bottom:20px;box-shadow:1px 1px 2px #959595;width:178px;height:;overflow:hidden;text-align:center;}
+.roll_day .title {font-weight:bold;font-size:22px;color:red;text-transform:uppercase;margin-bottom:0px;margin-top:10px;} 
+.roll_day .aftertitle {font-size:13px;color:gray;margin-bottom:3px;}
+.roll_day .image {height:;display:block;text-align:center;overflow:hidden;margin-bottom:10px;}
+.roll_day .image img {max-width:142px;margin-bottom:10px;}
+.roll_day .timer {font-size:18px;padding:3px 5px 3px 5px;box-shadow:0px 1px 2px #636363;display:inline-block;margin-bottom:10px;background:#F61207 url("/templates/main/images/rollday/rd_time_bg.jpg") left top repeat-x;color:#fff;}
+.roll_day .name {display:block;font-size:14px;color:#000;margin:0px 10px 0px 10px;}
+.roll_day .price-old {font-size:14px;font-weight:bold;display:;text-align:center;text-decoration: line-through;}
+.roll_day .price-new,.roll_day .price b {font-size:14px;font-weight:bold;display:;text-align:center;color:red;}
+.roll_day .to_cart {margin-bottom:10px;}

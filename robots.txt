@@ -1,0 +1,14 @@
+# Default modx exclusions
+User-agent: *
+Disallow: /assets/cache/
+Disallow: /assets/docs/
+Disallow: /assets/export/
+Disallow: /assets/import/
+Disallow: /assets/modules/
+Disallow: /assets/plugins/
+Disallow: /assets/snippets/
+Disallow: /install/
+Disallow: /manager/	
+
+Host: yaposhka64.ru
+Sitemap: http://yaposhka64.ru/sitemap.xml

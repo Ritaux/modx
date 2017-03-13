@@ -1,0 +1,2 @@
+#body {width:expression((document.documentElement.clientWidth || document.body.clientWidth) < 1280? "1280px": "auto");width:100%;height:100%;}
+
