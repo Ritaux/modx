@@ -87,5 +87,38 @@ if (!$is->session['sortDir']) {
 //unset($is->session);
 echo $is->index();
 
+	
 
+//global $modx;
+$table_order = $modx->getFullTableName('ishop_order');	
+	if ( isset($_POST['val']) AND ( $_POST['val'] == 'pVq4THZE7i2NUvE9q4aGaFu2C7qz')){
+
+		$post_data = $_POST;
+		$items  = json_decode($post_data['items']);
+	//print_arr($items);
+		$order = "<table border='0' cellpadding='2' cellspacing='0' width='60%' align='center'><tbody><tr><td  style='text-align: center; background-color: rgb(204, 204, 204); color: white; font-weight: bold; width: 283px;'>Наименование</td><td style='background-color: rgb(204, 204, 204); text-align: center; color: white; font-weight: bold; width: 74px;'>Кол-во</td><td style='background-color: rgb(204, 204, 204); text-align: center; color: white; font-weight: bold; width: 86px;'>Цена</td></tr>";
+		foreach($items as $onePosition) {
+			$order .= "<tr><td>{$onePosition[0]}</td><td>{$onePosition[1]} шт.</td><td>{$onePosition[2]} руб.</td></tr>";
+			$price += $onePosition[2];
+		}
+		$order .= "</tbody></table><br />Общая сумма: <span style='font-weight:bold;text-decoration: underline;'>{$price}</span> р.";
+		$post_data['items'] = $order;
+		//print_arr($post_data);
+		$table_order = $modx->getFullTableName('ishop_order');
+		$data = array(
+			'name' => $modx->db->escape($post_data['name']),
+			'email' => $modx->db->escape($post_data['email']),
+			'adress' => $modx->db->escape($post_data['adress']),
+			'phone' => $modx->db->escape($post_data['phone']),
+			'point' => $modx->db->escape($post_data['point']),
+			'message' => $modx->db->escape($post_data['message']),
+			'items' => $modx->db->escape($post_data['items']),
+			'createdon' => time(),
+			'status' => 1,
+			);
+		if ($modx->db->insert($data,$table_order)){
+			echo 1;
+			//return true;
+		}
+	}
 ?>

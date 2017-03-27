@@ -27,8 +27,17 @@ function iShopInsertOrder(&$fields) {
 			'createdon' => time(),
 			'status' => 1,
 		);
-		if ($modx->db->insert($data,$table_order));
-		return true;
+		if ($modx->db->insert($data,$table_order)){
+			$to = "mail2@example.com"; 
+			$subject = "Заголовок письма"; 
+			$message = implode('-', $data);;
+			$headers  = "Content-type: text/html; charset=windows-1251 \r\n"; 
+			$headers .= "From: От кого письмо <from@example.com>\r\n"; 
+			$headers .= "Reply-To: reply-to@example.com\r\n"; 
+			mail($to, $subject, $message, $headers); 
+			//mail("joecool@example.com", "My Subject", "Line 1\nLine 2\nLine 3");
+			return true;
+		}
 	}
 	return false;
 }
